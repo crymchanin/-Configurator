@@ -45,19 +45,24 @@ namespace Configurator {
         }
 
         private void SaveButton_Click(object sender, EventArgs e) {
-            if (MessageBox.Show("Сохранить изменения?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                GlobalPage_UpdateConf();
-                DBPage_UpdateConf();
-                ExternalFtp_UpdateConf();
-                ExchangePage_UpdateConf();
-                AppHelper.ConfHelper.SaveConfig(AppHelper.Configuration, Encoding.UTF8, true);
-                if (!AppHelper.ConfHelper.Success) {
-                    MessageBox.Show(AppHelper.ConfHelper.LastError.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            try {
+                if (MessageBox.Show("Сохранить изменения?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                    GlobalPage_UpdateConf();
+                    DBPage_UpdateConf();
+                    ExternalFtp_UpdateConf();
+                    ExchangePage_UpdateConf();
+                    AppHelper.ConfHelper.SaveConfig(AppHelper.Configuration, Encoding.UTF8, true);
+                    if (!AppHelper.ConfHelper.Success) {
+                        MessageBox.Show(AppHelper.ConfHelper.LastError.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else {
+                        AppHelper.IsSaved = true;
+                        MessageBox.Show("Файл конфигурации сохранен!", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                else {
-                    AppHelper.IsSaved = true;
-                    MessageBox.Show("Файл конфигурации сохранен!", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
