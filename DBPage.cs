@@ -27,12 +27,16 @@ namespace Configurator {
             string password = DBPasswordBox.Text;
             string database = DBDatabaseBox.Text;
             string datasource = DBDataSourceBox.Text;
+            bool pooling = DBPoolingBox.Checked;
+            int connLifetime = (int)DBConnLifetimeBox.Value;
 
-            return string.Format("User={0};Password={1};Database={2};DataSource={3};Charset=WIN1251;Pooling=false;Connection lifetime=60;",
+            return string.Format("User={0};Password={1};Database={2};DataSource={3};Charset=WIN1251;Pooling={4};Connection lifetime={5};",
                 username,
                 password,
                 database,
-                datasource);
+                datasource,
+                pooling.ToString().ToLower(),
+                connLifetime.ToString());
         }
 
         private void DBPage_LoadConf() {
@@ -40,6 +44,8 @@ namespace Configurator {
             DBDataSourceBox.Text = AppHelper.Configuration.Sql.DataSource;
             DBUsernameBox.Text = AppHelper.Configuration.Sql.Username;
             DBPasswordBox.Text = AppHelper.Configuration.Sql.Password;
+            DBPoolingBox.Checked = AppHelper.Configuration.Sql.Pooling;
+            DBConnLifetimeBox.Value = AppHelper.Configuration.Sql.ConnectionLifetime;
         }
 
         private void DBPage_UpdateConf() {
@@ -47,6 +53,8 @@ namespace Configurator {
             AppHelper.Configuration.Sql.DataSource = DBDataSourceBox.Text;
             AppHelper.Configuration.Sql.Username = DBUsernameBox.Text;
             AppHelper.Configuration.Sql.Password = DBPasswordBox.Text;
+            AppHelper.Configuration.Sql.Pooling = DBPoolingBox.Checked;
+            AppHelper.Configuration.Sql.ConnectionLifetime = (int)DBConnLifetimeBox.Value;
         }
 
         private void DBTestConnectionButton_Click(object sender, EventArgs e) {

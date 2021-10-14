@@ -37,18 +37,11 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Feodosiya.Lib">
-      <HintPath>.\Feodosiya.Lib.dll</HintPath>
-    </Reference>
     <Reference Include="FirebirdSql.Data.FirebirdClient">
       <HintPath>.\FirebirdSql.Data.FirebirdClient.dll</HintPath>
     </Reference>
     <Reference Include="FluentFTP, Version=32.3.1.0, Culture=neutral, PublicKeyToken=f4af092b1d8df44f, processorArchitecture=MSIL">
       <HintPath>packages\FluentFTP.32.3.1\lib\net45\FluentFTP.dll</HintPath>
-    </Reference>
-    <Reference Include="POFileManagerService, Version=2.0.1.1, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\POFileManagerService.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -468,6 +461,16 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Feodosiya.Lib\Feodosiya.Lib\Feodosiya.Lib.csproj">
+      <Project>{d3adc41d-d61d-4485-8661-508fa998acc5}</Project>
+      <Name>Feodosiya.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POFileManager\POFileManagerService\POFileManagerService.csproj">
+      <Project>{22644ccf-87ac-426a-b9dc-1f1207bdbfcc}</Project>
+      <Name>POFileManagerService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

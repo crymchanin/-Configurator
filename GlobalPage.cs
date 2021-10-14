@@ -9,8 +9,10 @@ namespace Configurator {
             TaskIntervalBox.Value = AppHelper.Configuration.TaskInterval;
             AdditionalTimeBox.Value = AppHelper.Configuration.AdditionalTime;
             DebuggingBox.Checked = AppHelper.Configuration.DebuggingEnabled;
+            DebuggingLevelBox.Value = AppHelper.Configuration.DebuggingLevel;
 
-            UpdateServiceBox.Text = AppHelper.Configuration.UpdaterServiceName;
+            UpdateServiceBox.Text = AppHelper.Configuration.Updates.UpdaterServiceName;
+            CheckUpdatesBox.Checked = AppHelper.Configuration.Updates.CheckUpdates;
         }
 
         private void GlobalPage_UpdateConf() {
@@ -18,8 +20,10 @@ namespace Configurator {
             AppHelper.Configuration.TaskInterval = (int)TaskIntervalBox.Value;
             AppHelper.Configuration.AdditionalTime = (int)AdditionalTimeBox.Value;
             AppHelper.Configuration.DebuggingEnabled = DebuggingBox.Checked;
+            AppHelper.Configuration.DebuggingLevel = (int)DebuggingLevelBox.Value;
 
-            AppHelper.Configuration.UpdaterServiceName = UpdateServiceBox.Text;
+            AppHelper.Configuration.Updates.UpdaterServiceName = UpdateServiceBox.Text;
+            AppHelper.Configuration.Updates.CheckUpdates = CheckUpdatesBox.Checked;
         }
     }
 }

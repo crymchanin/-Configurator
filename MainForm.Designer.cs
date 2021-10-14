@@ -27,6 +27,8 @@
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.GlobalPage = new System.Windows.Forms.TabPage();
             this.GlobalGroupBox = new System.Windows.Forms.GroupBox();
+            this.DebuggingLevelLabel = new System.Windows.Forms.Label();
+            this.DebuggingLevelBox = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.UpdateServiceBox = new System.Windows.Forms.TextBox();
             this.AdditionalTimeBox = new System.Windows.Forms.NumericUpDown();
@@ -38,6 +40,9 @@
             this.ZipCodeBox = new System.Windows.Forms.NumericUpDown();
             this.DBPage = new System.Windows.Forms.TabPage();
             this.DBGroupBox = new System.Windows.Forms.GroupBox();
+            this.DBPoolingBox = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.DBConnLifetimeBox = new System.Windows.Forms.NumericUpDown();
             this.DBTestConnectionButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.DBPasswordBox = new System.Windows.Forms.TextBox();
@@ -93,14 +98,17 @@
             this.LegendBadLabel = new System.Windows.Forms.Label();
             this.MainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.InfoStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.CheckUpdatesBox = new System.Windows.Forms.CheckBox();
             this.MainTabControl.SuspendLayout();
             this.GlobalPage.SuspendLayout();
             this.GlobalGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DebuggingLevelBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdditionalTimeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TaskIntervalBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZipCodeBox)).BeginInit();
             this.DBPage.SuspendLayout();
             this.DBGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DBConnLifetimeBox)).BeginInit();
             this.ExternalFtpPage.SuspendLayout();
             this.ExternalGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ExternalPortBox)).BeginInit();
@@ -142,6 +150,9 @@
             // 
             this.GlobalGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.GlobalGroupBox.Controls.Add(this.CheckUpdatesBox);
+            this.GlobalGroupBox.Controls.Add(this.DebuggingLevelLabel);
+            this.GlobalGroupBox.Controls.Add(this.DebuggingLevelBox);
             this.GlobalGroupBox.Controls.Add(this.label11);
             this.GlobalGroupBox.Controls.Add(this.UpdateServiceBox);
             this.GlobalGroupBox.Controls.Add(this.AdditionalTimeBox);
@@ -153,15 +164,49 @@
             this.GlobalGroupBox.Controls.Add(this.ZipCodeBox);
             this.GlobalGroupBox.Location = new System.Drawing.Point(10, 10);
             this.GlobalGroupBox.Name = "GlobalGroupBox";
-            this.GlobalGroupBox.Size = new System.Drawing.Size(530, 224);
+            this.GlobalGroupBox.Size = new System.Drawing.Size(530, 257);
             this.GlobalGroupBox.TabIndex = 0;
             this.GlobalGroupBox.TabStop = false;
             this.GlobalGroupBox.Text = "Основные";
             // 
+            // DebuggingLevelLabel
+            // 
+            this.DebuggingLevelLabel.AutoSize = true;
+            this.DebuggingLevelLabel.Location = new System.Drawing.Point(297, 144);
+            this.DebuggingLevelLabel.Name = "DebuggingLevelLabel";
+            this.DebuggingLevelLabel.Size = new System.Drawing.Size(121, 17);
+            this.DebuggingLevelLabel.TabIndex = 18;
+            this.DebuggingLevelLabel.Text = "Уровень отладки";
+            this.DebuggingLevelLabel.Visible = false;
+            // 
+            // DebuggingLevelBox
+            // 
+            this.DebuggingLevelBox.BackColor = System.Drawing.Color.Salmon;
+            this.DebuggingLevelBox.Location = new System.Drawing.Point(300, 164);
+            this.DebuggingLevelBox.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.DebuggingLevelBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.DebuggingLevelBox.Name = "DebuggingLevelBox";
+            this.DebuggingLevelBox.Size = new System.Drawing.Size(128, 23);
+            this.DebuggingLevelBox.TabIndex = 5;
+            this.DebuggingLevelBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.DebuggingLevelBox.Visible = false;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 144);
+            this.label11.Location = new System.Drawing.Point(12, 184);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(171, 17);
             this.label11.TabIndex = 16;
@@ -170,10 +215,10 @@
             // UpdateServiceBox
             // 
             this.UpdateServiceBox.BackColor = System.Drawing.Color.Salmon;
-            this.UpdateServiceBox.Location = new System.Drawing.Point(15, 164);
+            this.UpdateServiceBox.Location = new System.Drawing.Point(15, 204);
             this.UpdateServiceBox.Name = "UpdateServiceBox";
-            this.UpdateServiceBox.Size = new System.Drawing.Size(280, 23);
-            this.UpdateServiceBox.TabIndex = 15;
+            this.UpdateServiceBox.Size = new System.Drawing.Size(257, 23);
+            this.UpdateServiceBox.TabIndex = 4;
             // 
             // AdditionalTimeBox
             // 
@@ -192,7 +237,7 @@
             0});
             this.AdditionalTimeBox.Name = "AdditionalTimeBox";
             this.AdditionalTimeBox.Size = new System.Drawing.Size(128, 23);
-            this.AdditionalTimeBox.TabIndex = 4;
+            this.AdditionalTimeBox.TabIndex = 1;
             this.AdditionalTimeBox.Value = new decimal(new int[] {
             30,
             0,
@@ -220,6 +265,7 @@
             this.DebuggingBox.TabIndex = 3;
             this.DebuggingBox.Text = "Режим отладки";
             this.DebuggingBox.UseVisualStyleBackColor = false;
+            this.DebuggingBox.CheckedChanged += new System.EventHandler(this.DebuggingBox_CheckedChanged);
             // 
             // TaskIntervalBox
             // 
@@ -231,13 +277,13 @@
             0,
             0});
             this.TaskIntervalBox.Minimum = new decimal(new int[] {
-            10,
+            5,
             0,
             0,
             0});
             this.TaskIntervalBox.Name = "TaskIntervalBox";
             this.TaskIntervalBox.Size = new System.Drawing.Size(128, 23);
-            this.TaskIntervalBox.TabIndex = 1;
+            this.TaskIntervalBox.TabIndex = 2;
             this.TaskIntervalBox.Value = new decimal(new int[] {
             10,
             0,
@@ -288,16 +334,19 @@
             // DBPage
             // 
             this.DBPage.Controls.Add(this.DBGroupBox);
-            this.DBPage.Location = new System.Drawing.Point(4, 22);
+            this.DBPage.Location = new System.Drawing.Point(4, 25);
             this.DBPage.Name = "DBPage";
             this.DBPage.Padding = new System.Windows.Forms.Padding(3);
-            this.DBPage.Size = new System.Drawing.Size(552, 453);
+            this.DBPage.Size = new System.Drawing.Size(552, 450);
             this.DBPage.TabIndex = 1;
             this.DBPage.Text = "Подключение к БД";
             this.DBPage.UseVisualStyleBackColor = true;
             // 
             // DBGroupBox
             // 
+            this.DBGroupBox.Controls.Add(this.DBPoolingBox);
+            this.DBGroupBox.Controls.Add(this.label3);
+            this.DBGroupBox.Controls.Add(this.DBConnLifetimeBox);
             this.DBGroupBox.Controls.Add(this.DBTestConnectionButton);
             this.DBGroupBox.Controls.Add(this.label4);
             this.DBGroupBox.Controls.Add(this.DBPasswordBox);
@@ -309,14 +358,56 @@
             this.DBGroupBox.Controls.Add(this.DBDataSourceBox);
             this.DBGroupBox.Location = new System.Drawing.Point(10, 10);
             this.DBGroupBox.Name = "DBGroupBox";
-            this.DBGroupBox.Size = new System.Drawing.Size(530, 188);
+            this.DBGroupBox.Size = new System.Drawing.Size(530, 241);
             this.DBGroupBox.TabIndex = 0;
             this.DBGroupBox.TabStop = false;
             this.DBGroupBox.Text = "Параметры подключения к БД";
             // 
+            // DBPoolingBox
+            // 
+            this.DBPoolingBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DBPoolingBox.AutoSize = true;
+            this.DBPoolingBox.BackColor = System.Drawing.Color.Salmon;
+            this.DBPoolingBox.Location = new System.Drawing.Point(10, 138);
+            this.DBPoolingBox.Name = "DBPoolingBox";
+            this.DBPoolingBox.Size = new System.Drawing.Size(239, 21);
+            this.DBPoolingBox.TabIndex = 4;
+            this.DBPoolingBox.Text = "Использовать пул подключений";
+            this.DBPoolingBox.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(267, 116);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(177, 17);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Время жизни соединения";
+            // 
+            // DBConnLifetimeBox
+            // 
+            this.DBConnLifetimeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DBConnLifetimeBox.BackColor = System.Drawing.Color.Salmon;
+            this.DBConnLifetimeBox.Location = new System.Drawing.Point(270, 136);
+            this.DBConnLifetimeBox.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.DBConnLifetimeBox.Name = "DBConnLifetimeBox";
+            this.DBConnLifetimeBox.Size = new System.Drawing.Size(250, 23);
+            this.DBConnLifetimeBox.TabIndex = 5;
+            this.DBConnLifetimeBox.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
             // DBTestConnectionButton
             // 
-            this.DBTestConnectionButton.Location = new System.Drawing.Point(10, 136);
+            this.DBTestConnectionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DBTestConnectionButton.Location = new System.Drawing.Point(10, 189);
             this.DBTestConnectionButton.Name = "DBTestConnectionButton";
             this.DBTestConnectionButton.Size = new System.Drawing.Size(164, 28);
             this.DBTestConnectionButton.TabIndex = 4;
@@ -327,6 +418,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(267, 71);
             this.label4.Name = "label4";
@@ -336,6 +428,7 @@
             // 
             // DBPasswordBox
             // 
+            this.DBPasswordBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DBPasswordBox.BackColor = System.Drawing.Color.LightGreen;
             this.DBPasswordBox.Location = new System.Drawing.Point(270, 90);
             this.DBPasswordBox.Name = "DBPasswordBox";
@@ -345,6 +438,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(267, 27);
             this.label5.Name = "label5";
@@ -354,6 +448,7 @@
             // 
             // DBDatabaseBox
             // 
+            this.DBDatabaseBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DBDatabaseBox.BackColor = System.Drawing.Color.LightGreen;
             this.DBDatabaseBox.Location = new System.Drawing.Point(270, 46);
             this.DBDatabaseBox.Name = "DBDatabaseBox";
@@ -397,9 +492,9 @@
             // ExternalFtpPage
             // 
             this.ExternalFtpPage.Controls.Add(this.ExternalGroupBox);
-            this.ExternalFtpPage.Location = new System.Drawing.Point(4, 22);
+            this.ExternalFtpPage.Location = new System.Drawing.Point(4, 25);
             this.ExternalFtpPage.Name = "ExternalFtpPage";
-            this.ExternalFtpPage.Size = new System.Drawing.Size(552, 453);
+            this.ExternalFtpPage.Size = new System.Drawing.Size(552, 450);
             this.ExternalFtpPage.TabIndex = 2;
             this.ExternalFtpPage.Text = "Внешний FTP";
             this.ExternalFtpPage.UseVisualStyleBackColor = true;
@@ -539,9 +634,9 @@
             // MailPage
             // 
             this.MailPage.Controls.Add(this.ExchangeGroupBox);
-            this.MailPage.Location = new System.Drawing.Point(4, 22);
+            this.MailPage.Location = new System.Drawing.Point(4, 25);
             this.MailPage.Name = "MailPage";
-            this.MailPage.Size = new System.Drawing.Size(552, 453);
+            this.MailPage.Size = new System.Drawing.Size(552, 450);
             this.MailPage.TabIndex = 3;
             this.MailPage.Text = "Электронная почта";
             this.MailPage.UseVisualStyleBackColor = true;
@@ -695,9 +790,9 @@
             // TasksPage
             // 
             this.TasksPage.Controls.Add(this.TasksBox);
-            this.TasksPage.Location = new System.Drawing.Point(4, 22);
+            this.TasksPage.Location = new System.Drawing.Point(4, 25);
             this.TasksPage.Name = "TasksPage";
-            this.TasksPage.Size = new System.Drawing.Size(552, 453);
+            this.TasksPage.Size = new System.Drawing.Size(552, 450);
             this.TasksPage.TabIndex = 4;
             this.TasksPage.Text = "Задачи";
             this.TasksPage.UseVisualStyleBackColor = true;
@@ -876,9 +971,22 @@
             this.InfoStatusLabel.Spring = true;
             this.InfoStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // CheckUpdatesBox
+            // 
+            this.CheckUpdatesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CheckUpdatesBox.AutoSize = true;
+            this.CheckUpdatesBox.BackColor = System.Drawing.Color.Salmon;
+            this.CheckUpdatesBox.Location = new System.Drawing.Point(15, 154);
+            this.CheckUpdatesBox.Name = "CheckUpdatesBox";
+            this.CheckUpdatesBox.Size = new System.Drawing.Size(248, 21);
+            this.CheckUpdatesBox.TabIndex = 19;
+            this.CheckUpdatesBox.Text = "Выполнять проверку обновлений";
+            this.CheckUpdatesBox.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(584, 562);
             this.Controls.Add(this.MainStatusStrip);
@@ -901,12 +1009,14 @@
             this.GlobalPage.ResumeLayout(false);
             this.GlobalGroupBox.ResumeLayout(false);
             this.GlobalGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DebuggingLevelBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdditionalTimeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TaskIntervalBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZipCodeBox)).EndInit();
             this.DBPage.ResumeLayout(false);
             this.DBGroupBox.ResumeLayout(false);
             this.DBGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DBConnLifetimeBox)).EndInit();
             this.ExternalFtpPage.ResumeLayout(false);
             this.ExternalGroupBox.ResumeLayout(false);
             this.ExternalGroupBox.PerformLayout();
@@ -995,6 +1105,12 @@
         private System.Windows.Forms.Label LegendBadLabel;
         private System.Windows.Forms.StatusStrip MainStatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel InfoStatusLabel;
+        private System.Windows.Forms.Label DebuggingLevelLabel;
+        private System.Windows.Forms.NumericUpDown DebuggingLevelBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown DBConnLifetimeBox;
+        private System.Windows.Forms.CheckBox DBPoolingBox;
+        private System.Windows.Forms.CheckBox CheckUpdatesBox;
     }
 }
 
