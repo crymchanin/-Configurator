@@ -26,10 +26,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.GlobalPage = new System.Windows.Forms.TabPage();
+            this.LogsGroupBox = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.LogsLifetimeBox = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.MaxLogLengthBox = new System.Windows.Forms.NumericUpDown();
             this.GlobalGroupBox = new System.Windows.Forms.GroupBox();
+            this.CheckUpdatesBox = new System.Windows.Forms.CheckBox();
             this.DebuggingLevelLabel = new System.Windows.Forms.Label();
             this.DebuggingLevelBox = new System.Windows.Forms.NumericUpDown();
-            this.label11 = new System.Windows.Forms.Label();
+            this.UpdateServiceLabel = new System.Windows.Forms.Label();
             this.UpdateServiceBox = new System.Windows.Forms.TextBox();
             this.AdditionalTimeBox = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
@@ -98,9 +104,11 @@
             this.LegendBadLabel = new System.Windows.Forms.Label();
             this.MainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.InfoStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.CheckUpdatesBox = new System.Windows.Forms.CheckBox();
             this.MainTabControl.SuspendLayout();
             this.GlobalPage.SuspendLayout();
+            this.LogsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogsLifetimeBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxLogLengthBox)).BeginInit();
             this.GlobalGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DebuggingLevelBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdditionalTimeBox)).BeginInit();
@@ -137,6 +145,7 @@
             // 
             // GlobalPage
             // 
+            this.GlobalPage.Controls.Add(this.LogsGroupBox);
             this.GlobalPage.Controls.Add(this.GlobalGroupBox);
             this.GlobalPage.Location = new System.Drawing.Point(4, 25);
             this.GlobalPage.Name = "GlobalPage";
@@ -146,6 +155,90 @@
             this.GlobalPage.Text = "Основные параметры";
             this.GlobalPage.UseVisualStyleBackColor = true;
             // 
+            // LogsGroupBox
+            // 
+            this.LogsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LogsGroupBox.Controls.Add(this.label9);
+            this.LogsGroupBox.Controls.Add(this.LogsLifetimeBox);
+            this.LogsGroupBox.Controls.Add(this.label6);
+            this.LogsGroupBox.Controls.Add(this.MaxLogLengthBox);
+            this.LogsGroupBox.Location = new System.Drawing.Point(10, 264);
+            this.LogsGroupBox.Name = "LogsGroupBox";
+            this.LogsGroupBox.Size = new System.Drawing.Size(530, 100);
+            this.LogsGroupBox.TabIndex = 1;
+            this.LogsGroupBox.TabStop = false;
+            this.LogsGroupBox.Text = "Логи";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(287, 26);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(241, 17);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Время хранения сжатых логов (дн.)";
+            // 
+            // LogsLifetimeBox
+            // 
+            this.LogsLifetimeBox.BackColor = System.Drawing.Color.LightGreen;
+            this.LogsLifetimeBox.Location = new System.Drawing.Point(290, 46);
+            this.LogsLifetimeBox.Maximum = new decimal(new int[] {
+            365,
+            0,
+            0,
+            0});
+            this.LogsLifetimeBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.LogsLifetimeBox.Name = "LogsLifetimeBox";
+            this.LogsLifetimeBox.Size = new System.Drawing.Size(225, 23);
+            this.LogsLifetimeBox.TabIndex = 1;
+            this.LogsLifetimeBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(237, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Максимальный размер лога (байт)";
+            // 
+            // MaxLogLengthBox
+            // 
+            this.MaxLogLengthBox.BackColor = System.Drawing.Color.LightGreen;
+            this.MaxLogLengthBox.Increment = new decimal(new int[] {
+            1024,
+            0,
+            0,
+            0});
+            this.MaxLogLengthBox.Location = new System.Drawing.Point(15, 46);
+            this.MaxLogLengthBox.Maximum = new decimal(new int[] {
+            -469762049,
+            -590869294,
+            5421010,
+            0});
+            this.MaxLogLengthBox.Minimum = new decimal(new int[] {
+            1024,
+            0,
+            0,
+            0});
+            this.MaxLogLengthBox.Name = "MaxLogLengthBox";
+            this.MaxLogLengthBox.Size = new System.Drawing.Size(225, 23);
+            this.MaxLogLengthBox.TabIndex = 0;
+            this.MaxLogLengthBox.Value = new decimal(new int[] {
+            1024,
+            0,
+            0,
+            0});
+            // 
             // GlobalGroupBox
             // 
             this.GlobalGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -153,7 +246,7 @@
             this.GlobalGroupBox.Controls.Add(this.CheckUpdatesBox);
             this.GlobalGroupBox.Controls.Add(this.DebuggingLevelLabel);
             this.GlobalGroupBox.Controls.Add(this.DebuggingLevelBox);
-            this.GlobalGroupBox.Controls.Add(this.label11);
+            this.GlobalGroupBox.Controls.Add(this.UpdateServiceLabel);
             this.GlobalGroupBox.Controls.Add(this.UpdateServiceBox);
             this.GlobalGroupBox.Controls.Add(this.AdditionalTimeBox);
             this.GlobalGroupBox.Controls.Add(this.label10);
@@ -164,15 +257,27 @@
             this.GlobalGroupBox.Controls.Add(this.ZipCodeBox);
             this.GlobalGroupBox.Location = new System.Drawing.Point(10, 10);
             this.GlobalGroupBox.Name = "GlobalGroupBox";
-            this.GlobalGroupBox.Size = new System.Drawing.Size(530, 257);
+            this.GlobalGroupBox.Size = new System.Drawing.Size(530, 248);
             this.GlobalGroupBox.TabIndex = 0;
             this.GlobalGroupBox.TabStop = false;
             this.GlobalGroupBox.Text = "Основные";
             // 
+            // CheckUpdatesBox
+            // 
+            this.CheckUpdatesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CheckUpdatesBox.BackColor = System.Drawing.Color.Salmon;
+            this.CheckUpdatesBox.Location = new System.Drawing.Point(15, 144);
+            this.CheckUpdatesBox.Name = "CheckUpdatesBox";
+            this.CheckUpdatesBox.Size = new System.Drawing.Size(248, 21);
+            this.CheckUpdatesBox.TabIndex = 19;
+            this.CheckUpdatesBox.Text = "Выполнять проверку обновлений";
+            this.CheckUpdatesBox.UseVisualStyleBackColor = false;
+            this.CheckUpdatesBox.CheckedChanged += new System.EventHandler(this.CheckUpdatesBox_CheckedChanged);
+            // 
             // DebuggingLevelLabel
             // 
             this.DebuggingLevelLabel.AutoSize = true;
-            this.DebuggingLevelLabel.Location = new System.Drawing.Point(297, 144);
+            this.DebuggingLevelLabel.Location = new System.Drawing.Point(297, 174);
             this.DebuggingLevelLabel.Name = "DebuggingLevelLabel";
             this.DebuggingLevelLabel.Size = new System.Drawing.Size(121, 17);
             this.DebuggingLevelLabel.TabIndex = 18;
@@ -182,7 +287,7 @@
             // DebuggingLevelBox
             // 
             this.DebuggingLevelBox.BackColor = System.Drawing.Color.Salmon;
-            this.DebuggingLevelBox.Location = new System.Drawing.Point(300, 164);
+            this.DebuggingLevelBox.Location = new System.Drawing.Point(300, 194);
             this.DebuggingLevelBox.Maximum = new decimal(new int[] {
             2,
             0,
@@ -194,7 +299,7 @@
             0,
             0});
             this.DebuggingLevelBox.Name = "DebuggingLevelBox";
-            this.DebuggingLevelBox.Size = new System.Drawing.Size(128, 23);
+            this.DebuggingLevelBox.Size = new System.Drawing.Size(215, 23);
             this.DebuggingLevelBox.TabIndex = 5;
             this.DebuggingLevelBox.Value = new decimal(new int[] {
             1,
@@ -203,22 +308,24 @@
             0});
             this.DebuggingLevelBox.Visible = false;
             // 
-            // label11
+            // UpdateServiceLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 184);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(171, 17);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Имя службы обновлений";
+            this.UpdateServiceLabel.AutoSize = true;
+            this.UpdateServiceLabel.Location = new System.Drawing.Point(12, 174);
+            this.UpdateServiceLabel.Name = "UpdateServiceLabel";
+            this.UpdateServiceLabel.Size = new System.Drawing.Size(171, 17);
+            this.UpdateServiceLabel.TabIndex = 16;
+            this.UpdateServiceLabel.Text = "Имя службы обновлений";
+            this.UpdateServiceLabel.Visible = false;
             // 
             // UpdateServiceBox
             // 
             this.UpdateServiceBox.BackColor = System.Drawing.Color.Salmon;
-            this.UpdateServiceBox.Location = new System.Drawing.Point(15, 204);
+            this.UpdateServiceBox.Location = new System.Drawing.Point(15, 194);
             this.UpdateServiceBox.Name = "UpdateServiceBox";
-            this.UpdateServiceBox.Size = new System.Drawing.Size(257, 23);
+            this.UpdateServiceBox.Size = new System.Drawing.Size(248, 23);
             this.UpdateServiceBox.TabIndex = 4;
+            this.UpdateServiceBox.Visible = false;
             // 
             // AdditionalTimeBox
             // 
@@ -257,11 +364,10 @@
             // DebuggingBox
             // 
             this.DebuggingBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DebuggingBox.AutoSize = true;
             this.DebuggingBox.BackColor = System.Drawing.Color.Salmon;
-            this.DebuggingBox.Location = new System.Drawing.Point(300, 109);
+            this.DebuggingBox.Location = new System.Drawing.Point(300, 144);
             this.DebuggingBox.Name = "DebuggingBox";
-            this.DebuggingBox.Size = new System.Drawing.Size(128, 21);
+            this.DebuggingBox.Size = new System.Drawing.Size(215, 21);
             this.DebuggingBox.TabIndex = 3;
             this.DebuggingBox.Text = "Режим отладки";
             this.DebuggingBox.UseVisualStyleBackColor = false;
@@ -971,18 +1077,6 @@
             this.InfoStatusLabel.Spring = true;
             this.InfoStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // CheckUpdatesBox
-            // 
-            this.CheckUpdatesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CheckUpdatesBox.AutoSize = true;
-            this.CheckUpdatesBox.BackColor = System.Drawing.Color.Salmon;
-            this.CheckUpdatesBox.Location = new System.Drawing.Point(15, 154);
-            this.CheckUpdatesBox.Name = "CheckUpdatesBox";
-            this.CheckUpdatesBox.Size = new System.Drawing.Size(248, 21);
-            this.CheckUpdatesBox.TabIndex = 19;
-            this.CheckUpdatesBox.Text = "Выполнять проверку обновлений";
-            this.CheckUpdatesBox.UseVisualStyleBackColor = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1007,6 +1101,10 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.MainTabControl.ResumeLayout(false);
             this.GlobalPage.ResumeLayout(false);
+            this.LogsGroupBox.ResumeLayout(false);
+            this.LogsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogsLifetimeBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxLogLengthBox)).EndInit();
             this.GlobalGroupBox.ResumeLayout(false);
             this.GlobalGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DebuggingLevelBox)).EndInit();
@@ -1097,7 +1195,7 @@
         private System.Windows.Forms.CheckBox DebuggingBox;
         private System.Windows.Forms.NumericUpDown AdditionalTimeBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label UpdateServiceLabel;
         private System.Windows.Forms.TextBox UpdateServiceBox;
         private System.Windows.Forms.Panel LegendGoodBox;
         private System.Windows.Forms.Panel LegendBadBox;
@@ -1111,6 +1209,11 @@
         private System.Windows.Forms.NumericUpDown DBConnLifetimeBox;
         private System.Windows.Forms.CheckBox DBPoolingBox;
         private System.Windows.Forms.CheckBox CheckUpdatesBox;
+        private System.Windows.Forms.GroupBox LogsGroupBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown MaxLogLengthBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown LogsLifetimeBox;
     }
 }
 

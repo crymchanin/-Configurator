@@ -119,5 +119,10 @@ namespace Configurator {
             DebuggingLevelLabel.Visible = DebuggingBox.Checked;
             DebuggingLevelBox.Visible = DebuggingBox.Checked;
         }
+
+        private void CheckUpdatesBox_CheckedChanged(object sender, EventArgs e) {
+            UpdateServiceLabel.Visible = CheckUpdatesBox.Checked;
+            UpdateServiceBox.Visible = CheckUpdatesBox.Checked;
+        }
     }
 }
