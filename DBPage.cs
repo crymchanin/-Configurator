@@ -1,4 +1,5 @@
-﻿using FirebirdSql.Data.FirebirdClient;
+﻿using Feodosiya.Lib.Security;
+using FirebirdSql.Data.FirebirdClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -52,7 +53,7 @@ namespace Configurator {
             AppHelper.Configuration.Sql.Database = DBDatabaseBox.Text;
             AppHelper.Configuration.Sql.DataSource = DBDataSourceBox.Text;
             AppHelper.Configuration.Sql.Username = DBUsernameBox.Text;
-            AppHelper.Configuration.Sql.Password = DBPasswordBox.Text;
+            AppHelper.Configuration.Sql.Password = Pbkdf2Cryptography.Encrypt(StringHelper.Encoding.GetBytes(DBPasswordBox.Text), StringHelper.PassPhrase);
             AppHelper.Configuration.Sql.Pooling = DBPoolingBox.Checked;
             AppHelper.Configuration.Sql.ConnectionLifetime = (int)DBConnLifetimeBox.Value;
         }

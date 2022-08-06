@@ -600,7 +600,7 @@
             this.ExternalFtpPage.Controls.Add(this.ExternalGroupBox);
             this.ExternalFtpPage.Location = new System.Drawing.Point(4, 25);
             this.ExternalFtpPage.Name = "ExternalFtpPage";
-            this.ExternalFtpPage.Size = new System.Drawing.Size(552, 450);
+            this.ExternalFtpPage.Size = new System.Drawing.Size(572, 450);
             this.ExternalFtpPage.TabIndex = 2;
             this.ExternalFtpPage.Text = "Внешний FTP";
             this.ExternalFtpPage.UseVisualStyleBackColor = true;
@@ -742,7 +742,7 @@
             this.MailPage.Controls.Add(this.ExchangeGroupBox);
             this.MailPage.Location = new System.Drawing.Point(4, 25);
             this.MailPage.Name = "MailPage";
-            this.MailPage.Size = new System.Drawing.Size(552, 450);
+            this.MailPage.Size = new System.Drawing.Size(572, 450);
             this.MailPage.TabIndex = 3;
             this.MailPage.Text = "Электронная почта";
             this.MailPage.UseVisualStyleBackColor = true;
@@ -898,7 +898,7 @@
             this.TasksPage.Controls.Add(this.TasksBox);
             this.TasksPage.Location = new System.Drawing.Point(4, 25);
             this.TasksPage.Name = "TasksPage";
-            this.TasksPage.Size = new System.Drawing.Size(552, 450);
+            this.TasksPage.Size = new System.Drawing.Size(572, 450);
             this.TasksPage.TabIndex = 4;
             this.TasksPage.Text = "Задачи";
             this.TasksPage.UseVisualStyleBackColor = true;
@@ -1044,9 +1044,9 @@
             this.LegendGoodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LegendGoodLabel.Location = new System.Drawing.Point(188, 499);
             this.LegendGoodLabel.Name = "LegendGoodLabel";
-            this.LegendGoodLabel.Size = new System.Drawing.Size(222, 13);
+            this.LegendGoodLabel.Size = new System.Drawing.Size(161, 13);
             this.LegendGoodLabel.TabIndex = 5;
-            this.LegendGoodLabel.Text = "Параметры рекомендуемые к изменению";
+            this.LegendGoodLabel.Text = "Рекомендуемые к изменению";
             // 
             // LegendBadLabel
             // 
@@ -1054,9 +1054,9 @@
             this.LegendBadLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LegendBadLabel.Location = new System.Drawing.Point(188, 518);
             this.LegendBadLabel.Name = "LegendBadLabel";
-            this.LegendBadLabel.Size = new System.Drawing.Size(237, 13);
+            this.LegendBadLabel.Size = new System.Drawing.Size(177, 13);
             this.LegendBadLabel.TabIndex = 6;
-            this.LegendBadLabel.Text = "Параметры не рекомендуемые к изменению";
+            this.LegendBadLabel.Text = "Не рекомендуемые к изменению";
             // 
             // MainStatusStrip
             // 
@@ -1079,8 +1079,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(584, 562);
             this.Controls.Add(this.MainStatusStrip);

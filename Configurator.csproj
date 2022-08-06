@@ -437,8 +437,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="show.png" />
     <None Include="file.png" />
     <None Include="folder.png" />
+    <None Include="hide.png" />
     <Content Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>

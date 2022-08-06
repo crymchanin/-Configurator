@@ -1,6 +1,8 @@
-﻿using FluentFTP;
+﻿using Feodosiya.Lib.Security;
+using FluentFTP;
 using System;
 using System.Net;
+using System.Text;
 using System.Windows.Forms;
 
 
@@ -35,7 +37,7 @@ namespace Configurator {
             AppHelper.Configuration.Ftp.Host = ExternalHostBox.Text;
             AppHelper.Configuration.Ftp.Username = ExternalLoginBox.Text;
             AppHelper.Configuration.Ftp.Port = (int)ExternalPortBox.Value;
-            AppHelper.Configuration.Ftp.Password = ExternalPasswordBox.Text;
+            AppHelper.Configuration.Ftp.Password = Pbkdf2Cryptography.Encrypt(StringHelper.Encoding.GetBytes(ExternalPasswordBox.Text), StringHelper.PassPhrase);
             AppHelper.Configuration.Ftp.Cwd = ExternalCwdBox.Text;
         }
 
