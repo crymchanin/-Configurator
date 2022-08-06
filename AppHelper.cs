@@ -9,5 +9,7 @@ namespace Configurator {
         public static Global Configuration { get; set; }
 
         public static bool IsSaved { get; set; }
+
+        public static bool AdminPermisiions { get; set; }
     }
 }

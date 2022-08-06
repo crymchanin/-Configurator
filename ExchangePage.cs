@@ -1,4 +1,5 @@
 ﻿using Configurator.ru.crimeanpost.cas;
+using Feodosiya.Lib.Security;
 using System;
 using System.Net;
 using System.Windows.Forms;
@@ -47,7 +48,7 @@ namespace Configurator {
             AppHelper.Configuration.Mail.Host = ExHostBox.Text;
             AppHelper.Configuration.Mail.Domain = ExDomainBox.Text;
             AppHelper.Configuration.Mail.Username = ExUsernameBox.Text;
-            AppHelper.Configuration.Mail.Password = ExPasswordBox.Text;
+            AppHelper.Configuration.Mail.Password = Pbkdf2Cryptography.Encrypt(StringHelper.Encoding.GetBytes(ExPasswordBox.Text), StringHelper.PassPhrase);
             AppHelper.Configuration.Mail.ToRecipient = ExRecipientBox.Text;
             AppHelper.Configuration.Mail.CertificateName = ExCertBox.Text;
         }

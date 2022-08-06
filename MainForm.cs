@@ -1,4 +1,5 @@
 ﻿using Feodosiya.Lib.Conf;
+using Feodosiya.Lib.Security;
 using POFileManagerService.Configuration;
 using System;
 using System.IO;
@@ -38,9 +39,54 @@ namespace Configurator {
         public MainForm() {
             InitializeComponent();
 
+            StringHelper.Encoding = Encoding.UTF8;
+            StringHelper.PassPhrase = "22644ccf-87ac-426a-b9dc-1f1207bdbfcc";
+            AppHelper.AdminPermisiions = SecurityHelper.IsAdministrator();
+            if (AppHelper.AdminPermisiions) {
+                Text = Text + " [Администратор]";
+            }
+            else {
+                Text = Text + " [Пользователь]";
+            }
+            ShowPasswordViewControls();
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length > 1) {
                 LoadConfiguration(args[1]);
+            }
+        }
+
+        private Button CreatePassPrevButton(int x, int y, TextBox passBox, int passBoxW) {
+            passBox.Width = passBoxW;
+            Button prevButton = new Button();
+            prevButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            prevButton.BackgroundImage = Properties.Resources.hide;
+            prevButton.BackgroundImageLayout = ImageLayout.Center;
+            prevButton.FlatAppearance.BorderSize = 0;
+            prevButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+            prevButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
+            prevButton.Cursor = Cursors.Hand;
+            prevButton.FlatStyle = FlatStyle.Flat;
+            prevButton.Location = new System.Drawing.Point(x, y);
+            prevButton.Size = new System.Drawing.Size(23, 23);
+            prevButton.TabIndex = 4;
+            prevButton.UseVisualStyleBackColor = true;
+            prevButton.MouseDown += (s, e) => {
+                (s as Button).BackgroundImage = Properties.Resources.show;
+                passBox.UseSystemPasswordChar = false;
+            };
+            prevButton.MouseUp += (s, e) => {
+                (s as Button).BackgroundImage = Properties.Resources.hide;
+                passBox.UseSystemPasswordChar = true;
+            };
+
+            return prevButton;
+        }
+
+        private void ShowPasswordViewControls() {
+            if (AppHelper.AdminPermisiions) {
+                DBGroupBox.Controls.Add(CreatePassPrevButton(497, 90, DBPasswordBox, 225));
+                ExternalGroupBox.Controls.Add(CreatePassPrevButton(497, 90, ExternalPasswordBox, 225));
+                ExchangeGroupBox.Controls.Add(CreatePassPrevButton(497, 90, ExPasswordBox, 225));
             }
         }
 
